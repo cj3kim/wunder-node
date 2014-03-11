@@ -2,15 +2,32 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 
-var htmlPage = fs.createReadStream('./views/index.html');
-var applicationCSS = fs.createReadStream('./stylesheets/application.css');
+app.use(function (req, res) {
+  console.log("I think middle ware");
+});
+
+app.use(function (req, res) {
+  console.log("is like a stream");
+});
+
 
 app.get('/', function (req, res) {
-  htmlPage.pipe(res);
+  console.log("Served index.html at " + Date());
+  fs.readFile('./views/index.html', function (err, data) {
+    res.send(data.toString());
+  });
 });
 
 app.get('/application.css', function (req, res) {
-  applicationCSS.pipe(res);
+  fs.readFile('./stylesheets/application.css', function (err, data) {
+    res.send(data.toString());
+  });
+});
+
+app.get('/application.js', function (req, res) {
+  fs.readFile('./javascripts/application.js', function (err, data) {
+    res.send(data.toString());
+  });
 });
 
 var server = app.listen(4000, function () {
