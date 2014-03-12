@@ -1,8 +1,8 @@
-var VideoProject = function () {
-  var _this = this;
+var VideoView = require('./video-view');
+var jQuery    = require('jquery');
 
-  _this.name = "Video"
-  _this.shout = function () {
-    console.log(_this.name);
-  }
-}
+jQuery(document).ready(function () {
+  view = new VideoView // Global
+  view.calmlySpeak();
+});
+
