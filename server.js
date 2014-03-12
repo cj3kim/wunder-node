@@ -1,9 +1,13 @@
-var express = require('express');
-var app     = express();
-var sass    = require('node-sass');
-var fs      = require('fs');
-var path    = require('path');
+var express         = require('express');
+var app             = express();
+var sass            = require('node-sass');
+var path            = require('path');
+var fs              = require('fs');
+var mustacheExpress = require('mustache-express');
 
+app.engine('html', mustacheExpress());
+app.set('view engine', 'html');
+app.set('views', './views');
 
 app.use(sass.middleware({
     src: path.join(".", "stylesheets")
@@ -14,8 +18,13 @@ app.use(sass.middleware({
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-  fs.readFile('./views/index.html', function (err, data) {
-    res.send(data.toString());
+  res.render('index', function (err, html) {
+    if (err) throw err
+
+    if (html) {
+      res.send(html);
+      console.log("index page has been rendered");
+    }
   });
 });
 
