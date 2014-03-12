@@ -19,7 +19,7 @@ app.use(express.static('public'));
 
 app.get('/', function (req, res) {
   res.render('index', function (err, html) {
-    if (err) throw err
+    if (err) throw err;
 
     if (html) {
       res.send(html);
