@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "test": "node test.js",
+    "start": "beefy ./javascripts/application.js:application.js --live"
+  }
+}
