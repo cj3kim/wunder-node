@@ -10,6 +10,7 @@ module.exports = Backbone.View.extend({
 
   calmlySpeak: function () {
     console.log("What is the problem?");
+    return true;
   },
 
   strategize: function () {
