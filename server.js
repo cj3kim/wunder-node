@@ -3,7 +3,6 @@ var app             = express();
 var sass            = require('node-sass');
 var path            = require('path');
 var mustacheExpress = require('mustache-express');
-var Primus          = require('primus');
 
 var dynamo          = require('./lib/dynamo');
 dynamo();
@@ -34,21 +33,6 @@ app.get('/', function (req, res) {
 
 var server = require('http').createServer(app);
 
-var primus = new Primus(server, {
-  //defaults
-    authorization: null
-  , pathname: '/primus'
-  , parser: 'JSON'
-  , transformer: 'sockjs'
-  , plugin: {}
-  , timeout: 35000
-});
-
-primus.on('connection', function (spark) {
-  console.log('someone has connected');
-
-  spark.write({message: "This is data from the server"});
-});
 
 server.listen(4000, function () {
   console.log("Listening on port %d.", server.address().port);

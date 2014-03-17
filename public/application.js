@@ -3882,14 +3882,10 @@ Backbone.$ = jQuery;
 
 module.exports = Backbone.View.extend({
   initialize: function () {
-    var url = "http://localhost:4000/primus";
-    var primus = new Primus.connect(url);
+  }
 
-    primus.on('data', function message(data) {
-      console.log("Received a message from the server", data);
-    });
-  },
 });
+
 
 },{"backbone":4,"jquery":25,"primus":2}],4:[function(require,module,exports){
 //     Backbone.js 1.1.2
@@ -10423,8 +10419,8 @@ function indexOf (xs, x) {
   return -1;
 }
 
-}).call(this,require("/Users/chriskim/projects/node/wunder-node/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
-},{"./index.js":17,"/Users/chriskim/projects/node/wunder-node/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":11,"buffer":6,"events":9,"inherits":10,"process/browser.js":18,"string_decoder":23}],21:[function(require,module,exports){
+}).call(this,require("/Users/CK-iMac/projects/node/wunder-node/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"))
+},{"./index.js":17,"/Users/CK-iMac/projects/node/wunder-node/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":11,"buffer":6,"events":9,"inherits":10,"process/browser.js":18,"string_decoder":23}],21:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
