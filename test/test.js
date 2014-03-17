@@ -7,5 +7,4 @@ describe('example', function () {
       expect(true).to.be(false);
     });
   });
-
 });

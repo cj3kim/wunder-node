@@ -1,24 +1,16 @@
 var Backbone = require('backbone');
 var jQuery   = require('jquery');
+var Primus   = require('primus');
 
 Backbone.$ = jQuery;
 
 module.exports = Backbone.View.extend({
   initialize: function () {
-    this.name = "I am the CEO, Chris";
-  },
+    var url = "http://localhost:4000/primus";
+    var primus = new Primus.connect(url);
 
-  calmlySpeak: function () {
-    console.log("What is the problem?");
-    return true;
+    primus.on('data', function message(data) {
+      console.log("Received a message from the server", data);
+    });
   },
-
-  strategize: function () {
-    console.log("Thinking....");
-    console.log("IDEA!");
-  },
-
-  work: function () {
-    console.log("Work work work");
-  }
 });

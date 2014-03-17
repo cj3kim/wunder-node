@@ -2,5 +2,25 @@
   "scripts": {
     "test": "node test.js",
     "start": "beefy ./javascripts/application.js:application.js --live"
+  },
+  "dependencies": {
+    "sockjs": "^0.3.8",
+    "sockjs-client-node": "0.0.0"
+  },
+
+  "browserify": {
+    "transform": [ "browserify-shim" ]
+  },
+
+  "browser" : {
+    "primus" : "./javascripts/shims/primus.js"
+  },
+
+  "browserify-shim": {
+    "primus": { "exports": "Primus" }
+  },
+
+  "devDependencies": {
+    "browserify-shim": "^3.3.1"
   }
 }
