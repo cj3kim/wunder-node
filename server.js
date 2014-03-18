@@ -32,7 +32,16 @@ app.get('/', function (req, res) {
 });
 
 var server = require('http').createServer(app);
+var WebSocketServer = require('ws').Server;
+var wss = new WebSocketServer({server: server});
 
+
+wss.on('connection', function(ws) {
+    ws.on('message', function(message) {
+        console.log("Received: " + message);
+    });
+    ws.send(JSON.stringify({foo: "bar"}));
+});
 
 server.listen(4000, function () {
   console.log("Listening on port %d.", server.address().port);
