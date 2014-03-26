@@ -4,10 +4,6 @@ var sass            = require('node-sass');
 var path            = require('path');
 var mustacheExpress = require('mustache-express');
 
-var dynamo          = require('./lib/dynamo');
-dynamo();
-
-
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
 app.set('views', './views');

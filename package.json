@@ -1,8 +1,13 @@
 {
   "scripts": {
     "test": "node test.js",
-    "start": "beefy ./javascripts/application.js:application.js --live"
+    "start-dev"          : "npm run initial-js-compile && npm run watch-js & npm run server-start",
+    "watch-js"           : "node tasks/j-watch.js",
+    "initial-js-compile" : "node tasks/js-compiler.js",
+    "server-start"       : "node server.js"
+
   },
+
   "dependencies": {
     "sockjs": "^0.3.8",
     "sockjs-client-node": "0.0.0"

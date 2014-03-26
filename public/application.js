@@ -6,6 +6,7 @@ var stream    = require('stream');
 
 jQuery(document).ready(function () {
   var view = new VideoView();
+
 });
 
 
